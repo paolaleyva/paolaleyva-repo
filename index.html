@@ -3,114 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claro - Your brain manager</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+    <title>paola leyva | web developer</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <!-- auth overlay -->
-    <div id="auth-overlay" class="auth-overlay">
-        <div class="auth-card">
-        <div class="auth-logo">claro</div>
-        <p class="auth-tagline">your gentle brain manager</p>
-        <p class="auth-desc">Sign in with Google to connect your calendar, manage tasks, and keep your notes in one calm place.</p>
-        <button id="sign-in-btn" class="btn-signin">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
-            <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
-            <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
-            <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
-            </svg>
-            Continue with Google
-        </button>
-        <p class="auth-note">Only your calendar events are read — nothing is written or shared!</p>
+    <nav id="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-name">Paola Leyva</a>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-    </div>
-
-
-    <!-- main app-->
-    <div id="app" class="hidden">
+    </nav>
+ 
+    <main>
+        <div class="container">
+    
+            <p class="hero-greeting">Hello, I'm</p>
         
-        <!-- header -->
-        <header class="header">
-            <div class="header-left">
-                <span class="logo">claro</span>
-                <span class="header-date" id="header-date"></span>
+            <h1>Paola <em>Leyva.</em></h1>
+        
+            <p class="hero-bio">
+                Web developer &amp; UX designer with a focus on accessible, human-centered digital experiences. <br>
+                Currently studying Web & User Experience with a focus in Full-Stack Development at Weber State University.
+            </p>
+        
+            <div class="hero-links">
+                <a href="projects.html">View Projects</a>
+                <a href="about.html">About Me</a>
+                <a href="contact.html">Get in Touch</a>
             </div>
-            <div class="header-right">
-                <span class="user-name" id="user-name"></span>
-                <button id="sign-out-btn" class="btn-signout">sign out</button>
-            </div>
-        </header>
-
-        <!-- week banner -->
-        <div class="week-banner" id="week-banner">
-            <div class="week-banner-label">this week</div>
-            <div class="week-events" id="week-events">
-                <span class="loading-text">loading your week...</span>
+        
+            <hr />
+        
+            <div class="snapshot-grid">
+                <div>
+                    <h3>Currently</h3>
+                <ul>
+                    <li>Digital Accessibility Coordinator at SLCC</li>
+                    <li>Undergraduate Researcher</li>
+                    <li>Weber State University Web &amp; UX Student</li>
+                </ul>
+                </div>
+                <div>
+                <h3>Interests</h3>
+                <ul>
+                    <li>Accessible Design</li>
+                    <li>Front-End Development</li>
+                    <li>Systems Thinking & Design</li>
+                </ul>
+                </div>
             </div>
         </div>
-        
-        <!-- main grid -->
-        <main class="main-grid">
-
-            <!-- to-do panel -->
-            <section class="panel panel-todo" aria-label="To-do list">
-                <div class="panel-header">
-                    <h2 class="panel-title">to-do</h2>
-                    <span class="task-count" id="task-count">0 left</span>
-                </div>
-                <div class="todo-input-row">
-                    <input
-                        type="text"
-                        id="todo-input"
-                        class="todo-input"
-                        placeholder="add a task..."
-                        maxlength="120"
-                        aria-label="New task"
-                    />
-                    <button id="todo-add-btn" class="btn-add" aria-label="Add task">+</button>
-                </div>
-                <ul class="todo-list" id="todo-list" aria-live="polite"></ul>
-                <div class="todo-footer">
-                    <button id="clear-completed-btn" class="btn-ghost">clear completed</button>
-                </div>
-            </section>
-
-            <!-- notes panel -->
-            <section class="panel panel-notes" aria-label="Quick notes">
-                <div class="panel-header">
-                    <h2 class="panel-title">notes</h2>
-                    <span class="saved-indicator" id="saved-indicator">saved</span>
-                </div>
-                <textarea
-                    id="notes-area"
-                    class="notes-area"
-                    placeholder="brain dump anything here — ideas, reminders, things to remember..."
-                    aria-label="Notes"
-                ></textarea>
-            </section>
-
-            <!-- calendar panel -->
-            <section class="panel panel-calendar" aria-label="Google Calendar events">
-                <div class="panel-header">
-                    <h2 class="panel-title">calendar</h2>
-                    <span class="panel-sub">next 7 days</span>
-                </div>
-                <div class="calendar-list" id="calendar-list" aria-live="polite">
-                    <span class="loading-text">fetching events...</span>
-                </div> 
-            </section>
-
-        </main>
-    </div>
-
-    <!-- google identity services -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="js/script.js"></script>
+    </main>
+    
+    <footer class="site-footer">
+        <p>&copy; 2026 Paola Leyva &mdash; Designed &amp; Built by me</p>
+    </footer>
     
 </body>
 </html>
